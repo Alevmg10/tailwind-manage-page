@@ -40,6 +40,7 @@ leftButton.addEventListener("click", function() {
   if (offset !== 0) {
     offset += carouselWidth-370;/* Hardcoded random number for it to fit my screen */
     carousel.style.transform = `translateX(${offset}px)`;
+    leftButton.style.display = 'none'
     }
 })
   
@@ -47,6 +48,7 @@ rightButton.addEventListener("click", function() {
   if (offset >= maxX) {
     offset -= carouselWidth-370;/* Hardcoded random number for it to fit my screen */
     carousel.style.transform = `translateX(${offset}px)`;
+    leftButton.style.display = 'block';
   }
   console.log(offset)
 })
