@@ -30,26 +30,28 @@ const cardCount = carousel.querySelectorAll("[data-target='card']").length;
 // Define an offset property to dynamically update by clicking the button controls
 // as well as a maxX property so the carousel knows when to stop at the upper limit
 let offset = 0;
-const maxX = -((cardCount / 3) * carouselWidth + 
+let maxX = -((cardCount / 3) * carouselWidth + 
                (cardMarginRight * (cardCount / 3)) - 
-               carouselWidth - cardMarginRight) + (card.offsetWidth/3);
+               carouselWidth - cardMarginRight) / (card.offsetWidth/3);
+
+
+// responsive check
+let mobile = !window.matchMedia('(min-width: 7680px)').matches;
+mobile ? maxX = -(card.offsetWidth*3) : '';
 
 
 // Add the click events
 leftButton.addEventListener("click", function() {
   if (offset !== 0) {
-    offset += (carouselWidth - card.offsetWidth)/3;/* Hardcoded random number for it to fit my screen */
+    offset += card.offsetWidth - 160;
     carousel.style.transform = `translateX(${offset}px)`;
-    // leftButton.style.display = 'none'
     }
 })
   
 rightButton.addEventListener("click", function() {
   if (offset >= maxX) {
-    offset -= (carouselWidth - card.offsetWidth)/3;/* Hardcoded random number for it to fit my screen */
+    offset -= card.offsetWidth - 160;
     carousel.style.transform = `translateX(${offset}px)`;
-    // leftButton.style.display = 'block';
-
   }
   console.log(offset)
 })

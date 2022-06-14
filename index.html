@@ -179,20 +179,20 @@
                 </h2>
                 
                 <!-- Testimonials container and carousel -->
-                <div id="carousel" class="carousel__container relative overflow-x-hidden">
-                    <ul class="carousel flex  mt-24 md:flex-row md:w-screen md:space-x-6" data-target="carousel">
+                <div id="carousel" class="carousel__container overflow-x-hidden">
+                    <ul class="carousel w-full flex space-x-4 mt-24 md:flex-row md:w-screen md:space-x-6" data-target="carousel">
                         <!-- Testimonial no.1 -->
                         <li class="card flex flex-col items-center p-6 space-y-6 rounded-lg  bg-veryLightGray basis-[340px] shrink-0 grow-0" data-target="card">
                             <img src="./img/avatar-anisha.png" class="w-16 -mt-14" alt="">
                             <h5 class="text-lg font-bold">Anisha Li</h5>
-                            <p class="text-sm text-darkGrayishBlue">
+                            <p class="max-w-xs mx-auto text-center text-darkGrayishBlue">
                                 “Manage has supercharged our team’s workflow. The ability to
                                 maintain visibility on larger milestones at all times keeps
                                 everyone motivated.”
                             </p>
                         </li>
                         <!-- Testimonial no.2 -->
-                        <li class="card md:flex flex-col items-center p-6 space-y-6 rounded-lg  bg-veryLightGray basis-[340px] shrink-0 grow-0" data-target="card">
+                        <li class="cardself-strech flex flex-col items-center p-6 space-y-6 rounded-lg  bg-veryLightGray basis-[340px] shrink-0 grow-0" data-target="card">
                             <img src="./img/avatar-ali.png" class="w-16 -mt-14" alt="" />
                             <h5 class="text-lg font-bold">Ali Bravo</h5>
                             <p class="text-sm text-darkGrayishBlue">
@@ -202,7 +202,7 @@
                             </p>
                         </li>
                         <!-- Testimonial no.3 -->
-                        <li class="card  md:flex flex-col items-center p-6 space-y-6 rounded-lg  bg-veryLightGray basis-[340px] shrink-0 grow-0" data-target="card">
+                        <li class="card flex flex-col items-center p-6 space-y-6 rounded-lg  bg-veryLightGray basis-[340px] shrink-0 grow-0" data-target="card">
                             <img src="./img/avatar-richard.png" class="w-16 -mt-14" alt="" />
                             <h5 class="text-lg font-bold">Richard Watts</h5>
                             <p class="text-sm text-darkGrayishBlue">
@@ -212,7 +212,7 @@
                             </p>
                         </li>
                         <!-- Testimonial no.4 -->
-                        <li class="card md:flex flex-col items-center p-6 space-y-6 rounded-lg  bg-veryLightGray basis-[340px] shrink-0 grow-0" data-target="card">
+                        <li class="cardself-strech flex flex-col items-center p-6 space-y-6 rounded-lg  bg-veryLightGray basis-[340px] shrink-0 grow-0" data-target="card">
                             <img src="./img/avatar-shanai.png" class="w-16 -mt-14" alt="" />
                             <h5 class="text-lg font-bold">Shanai Gough</h5>
                             <p class="text-sm text-darkGrayishBlue">
@@ -222,15 +222,18 @@
                                 </p>
                         </li>
                     </ul>
+
+                        <!-- Arrow buttons -->
+                        <div class="w-full flex justify-end space-x-8 mt-10">
+                            <button id="prev" class="bg-brightRedLight text-white text-xs p-2 rounded-full cursor-pointer outline-0 hover:bg-brightRed" data-action="slideLeft">&lt;</button>
+                            <button id="next" class="bg-brightRedLight text-white text-xs p-2 rounded-full cursor-pointer outline-0 hover:bg-brightRed" data-action="slideRight">&gt;</button>
+                        </div>
                       <!-- Button -->
                         <div class="my-16">
                             <a href="#" class="p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight">
                                 Get Started</a>
                         </div>
-                        <!-- Arrow buttons -->
-                        <button id="prev" data-action="slideLeft">&lt;</button>
-                        <button id="next" data-action="slideRight">&gt;</button>
-                    
+                        
                 </div>
                 
                     
