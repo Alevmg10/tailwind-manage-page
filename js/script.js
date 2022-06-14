@@ -32,13 +32,13 @@ const cardCount = carousel.querySelectorAll("[data-target='card']").length;
 let offset = 0;
 const maxX = -((cardCount / 3) * carouselWidth + 
                (cardMarginRight * (cardCount / 3)) - 
-               carouselWidth - cardMarginRight);
+               carouselWidth - cardMarginRight) + (card.offsetWidth/3);
 
 
 // Add the click events
 leftButton.addEventListener("click", function() {
   if (offset !== 0) {
-    offset += carouselWidth - 370;/* Hardcoded random number for it to fit my screen */
+    offset += (carouselWidth - card.offsetWidth)/3;/* Hardcoded random number for it to fit my screen */
     carousel.style.transform = `translateX(${offset}px)`;
     // leftButton.style.display = 'none'
     }
@@ -46,7 +46,7 @@ leftButton.addEventListener("click", function() {
   
 rightButton.addEventListener("click", function() {
   if (offset >= maxX) {
-    offset -= carouselWidth - 370;/* Hardcoded random number for it to fit my screen */
+    offset -= (carouselWidth - card.offsetWidth)/3;/* Hardcoded random number for it to fit my screen */
     carousel.style.transform = `translateX(${offset}px)`;
     // leftButton.style.display = 'block';
 
