@@ -30,26 +30,54 @@ const cardCount = carousel.querySelectorAll("[data-target='card']").length;
 // Define an offset property to dynamically update by clicking the button controls
 // as well as a maxX property so the carousel knows when to stop at the upper limit
 let offset = 0;
-const maxX = -((cardCount / 3) * carouselWidth + 
-               (cardMarginRight * (cardCount / 3)) - 
-               carouselWidth - cardMarginRight) + (card.offsetWidth/3);
+let maxX = -((cardCount / 3) * carouselWidth + (cardMarginRight * (cardCount / 3)) - carouselWidth - cardMarginRight) + (card.offsetWidth/3);
+
+/* Lets create a function that resets our carousel and our values whenever we load or resize the page */
+const reset = () => {
+  console.log('resized');
+  /* We want a clean offset registry */
+  offset = 0;
+  /* and to get the carousel at its starting point */
+  carousel.style.transform = `translateX(20px)`;
+  /* Responsive check */
+  let mobile = !window.matchMedia('(min-width: 768px)').matches;
+  if(mobile){
+    maxX = -(card.offsetWidth*3);
+    // console.log('we are on mobile');
+  }else{
+    maxX = -((cardCount / 3) * carouselWidth + (cardMarginRight * (cardCount / 3)) - carouselWidth - cardMarginRight) + (card.offsetWidth/3);
+    // console.log('we are on desktop');
+  }
+}
+
+/* To fix the resizing problem... */
+window.onresize = () => { 
+  reset();
+}
+window.onload = () => {
+  reset();
+}
 
 
 // Add the click events
 leftButton.addEventListener("click", function() {
-  if (offset !== 0) {
-    offset += (carouselWidth - card.offsetWidth)/3;/* Hardcoded random number for it to fit my screen */
+  if (offset != 0) {
+    offset += card.offsetWidth;/* Hardcoded random number for it to fit my screen */
     carousel.style.transform = `translateX(${offset}px)`;
-    // leftButton.style.display = 'none'
+    // leftButton.style.display = 'none';
+    console.log('left');
     }
+    console.log('offset: ' + offset);
+    console.log('maxX: ' + maxX);
 })
   
 rightButton.addEventListener("click", function() {
-  if (offset >= maxX) {
-    offset -= (carouselWidth - card.offsetWidth)/3;/* Hardcoded random number for it to fit my screen */
+  if (offset > maxX) {
+    offset -= card.offsetWidth;/* Hardcoded random number for it to fit my screen */
     carousel.style.transform = `translateX(${offset}px)`;
     // leftButton.style.display = 'block';
-
+    console.log('right');
   }
-  console.log(offset)
+  console.log('offset: ' + offset);
+  console.log('maxX: ' + maxX);
 })
