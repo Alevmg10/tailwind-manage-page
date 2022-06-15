@@ -818,6 +818,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   flex-basis: 18rem;
 }
 
+.basis-\[360px\] {
+  flex-basis: 360px;
+}
+
 .table-auto {
   table-layout: auto;
 }

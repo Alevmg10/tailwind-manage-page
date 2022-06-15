@@ -61,14 +61,14 @@ window.onload = () => {
 // Add the click events
 leftButton.addEventListener("click", function() {
   if (offset !== 0) {
-    offset += card.offsetWidth;
+    offset += card.offsetWidth - 160;
     carousel.style.transform = `translateX(${offset}px)`;
     }
 })
   
 rightButton.addEventListener("click", function() {
   if (offset >= maxX) {
-    offset -= card.offsetWidth;
+    offset -= card.offsetWidth - 160;
     carousel.style.transform = `translateX(${offset}px)`;
   }
   console.log(offset)
