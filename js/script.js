@@ -35,22 +35,40 @@ let maxX = -((cardCount / 3) * carouselWidth +
                carouselWidth - cardMarginRight) / (card.offsetWidth/3);
 
 
-// responsive check
-let mobile = !window.matchMedia('(min-width: 7680px)').matches;
-mobile ? maxX = -(card.offsetWidth*3) : '';
+
+/* Lets create a function that resets our carousel and our values whenever we load or resize the page */
+const reset = () => {
+  console.log('resized');
+  offset = 0;
+  carousel.style.transform = `translateX(20px)`;
+  /* Responsive check */
+  let mobile = !window.matchMedia('(min-width: 768px)').matches;
+  if(mobile){
+    maxX = -(card.offsetWidth*3);
+  }else{
+    maxX = -((cardCount / 3) * carouselWidth + (cardMarginRight * (cardCount / 3)) - carouselWidth - cardMarginRight) + (card.offsetWidth/3);
+  }
+}
+
+window.onresize = () => { 
+  reset();
+}
+window.onload = () => {
+  reset();
+}
 
 
 // Add the click events
 leftButton.addEventListener("click", function() {
   if (offset !== 0) {
-    offset += card.offsetWidth - 160;
+    offset += card.offsetWidth;
     carousel.style.transform = `translateX(${offset}px)`;
     }
 })
   
 rightButton.addEventListener("click", function() {
   if (offset >= maxX) {
-    offset -= card.offsetWidth - 160;
+    offset -= card.offsetWidth;
     carousel.style.transform = `translateX(${offset}px)`;
   }
   console.log(offset)
