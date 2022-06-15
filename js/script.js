@@ -36,7 +36,6 @@ let maxX = -((cardCount / 3) * carouselWidth +
 
 
 
-/* Lets create a function that resets our carousel and our values whenever we load or resize the page */
 const reset = () => {
   console.log('resized');
   offset = 0;
